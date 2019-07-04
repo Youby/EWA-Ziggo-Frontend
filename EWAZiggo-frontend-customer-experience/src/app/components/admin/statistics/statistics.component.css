@@ -1,0 +1,40 @@
+h1{
+  font-weight: bolder;
+  color: #8B8B8B;
+  font-size: 40px;
+}
+h5{
+  font-size: 15px;
+  margin: 0  0  0  5px;
+  display:inline;
+  color: #A2A2A2;
+  font-weight: bold;
+}
+.content{
+  margin: 15px;
+}
+#chart {
+  width: inherit;
+  height: 30%;
+  display:flex ;
+}
+.content-card-stats{
+  margin: 20px 0;
+}
+
+.content-card-row{
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+
+  color: #A2A2A2;
+}
+.content-card-column{
+  display: table-cell;
+}
+
+.content-card-column-results{
+  font-size: 18px;
+  margin-right: 20px;
+  text-align: right;
+}

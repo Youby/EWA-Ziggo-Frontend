@@ -1,0 +1,49 @@
+@import '../../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+.toolbar{
+  background: linear-gradient(to bottom, #464646, #2e2e2e);
+  border-radius: 5px;
+  color:white;
+  margin: 0;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.col-md-6 {
+  padding-top: 5px;
+  width: 100%;
+}
+
+.btn-submit {
+  color: white;
+  font-weight: bold;
+}
+
+.btn-submit:disabled {
+  color: white;
+}
+
+.row {
+  width: 100%;
+}
+
+.form-control {
+  width: 100% ;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+.mat-drawer-container {
+  color: rgba(0,0,0,.87);
+}
+
+.mat-select-arrow {
+  color: rgba(0,0,0,.87);
+}
+
+
+

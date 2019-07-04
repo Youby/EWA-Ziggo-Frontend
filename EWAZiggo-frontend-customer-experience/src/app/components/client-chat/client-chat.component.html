@@ -1,0 +1,66 @@
+<mat-toolbar [hidden]="showOutro">
+  <mat-toolbar-row class="top-header">
+    <span [hidden]="!isHidden">Chat met ons.</span>
+    <span [hidden]="isHidden">{{chatToken.employee.name}}</span>
+    <span class="spacer"></span> <i style="cursor: pointer; font-weight: bolder;">_</i>
+    <i class="fa fa-times" style="cursor: pointer"></i>
+  </mat-toolbar-row>
+  <mat-toolbar-row class="icon-header">
+
+    <span class="spacer"></span>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="390" height="48"
+         viewBox="0 0 520 64">
+      <image id="logo" width="520" height="64"
+             xlink:href="data:img/png;base64,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"></image>
+    </svg>
+    <span class="spacer"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<ng-template [ngIf]="isHidden">
+  <div class="message-intro">
+    <span>Welkom bij live chat van VodafoneZiggo. Kom je er zelf niet uit en heb je een vraag? We helpen je graag! Chat nu met één van onze medewerkers.</span>
+    <br> <br>
+
+    <span [hidden]="!allOffline" style="font-style: italic; font-size: 14px">Er zijn op dit moment geen medewerkers online, probeer het later nog eens</span>
+
+  </div>
+
+  <div class="button-container" align="right">
+    <button mat-raised-button class="intro-button" id="cancel" [hidden]="allOffline">Annuleer</button>
+    <button mat-raised-button class="intro-button" id="start" (click)="startChat()" [hidden]="allOffline">Start Chat
+    </button>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="showChat">
+  <div class="chat-messages">
+    <span>You are connected to: <b>{{chatToken.employee.name + ' ' + chatToken.employee.surname }}</b></span>
+    <div *ngFor="let message of chatToken.chat.messages">
+      <mat-card class="chat-message">
+        <mat-card-title class="author">{{message.user.name}}</mat-card-title>
+        <mat-card-content class="chat-message__content">{{message.content}}</mat-card-content>
+        <mat-card-subtitle class="date" align="right">{{message.sent}}</mat-card-subtitle>
+      </mat-card>
+    </div>
+  </div>
+  <div class="chat-box">
+    <span class="spacer"></span>
+    <mat-form-field appearance="outline" class="message-box">
+      <input matInput placeholder="Enter a message" [(ngModel)]="content" (keydown.enter)="sendMessage()">
+    </mat-form-field>
+    <span class="spacer"></span>
+    <div class="button-column">
+      <button mat-mini-fab class="send-button" (click)="sendMessage()"><i class="fa fa-arrow-right fa-lg"></i>
+      </button>
+    </div>
+  </div>
+
+</ng-template>
+<ng-template [ngIf]="showOutro">
+  <div class="outro">
+    <div class="outro-container">
+      <span class="outro-title"> Bedankt voor uw feedback</span><br>
+      <span class="outro-message">(Dit venster wordt over enkele seconden gesloten)</span>
+    </div>
+  </div>
+</ng-template>

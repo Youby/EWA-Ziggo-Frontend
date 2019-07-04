@@ -1,0 +1,46 @@
+<div class="content">
+  <h1>Statistics</h1>
+  <mat-card>
+    <div id="chart">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="myColors">
+    </canvas>
+    </div>
+    <div class="stat-box">
+      <div class="content-card-row">
+        <div class="content-card-column">
+          <i class="fas fa-clipboard-check fa-2x"></i>
+          <h5>Problems solved </h5>
+        </div>
+        <div class="content-card-column-results">
+          <h5>{{stats.problemSolved}}</h5>
+        </div>
+        <div class="content-card-column">
+          <i class="fas fa-comment-alt fa-2x"></i>
+          <h5>Total chats</h5>
+        </div>
+        <div class="content-card-column-results">
+          <h5>{{stats.totalChats}}</h5>
+        </div>
+      </div>
+
+      <hr>
+      <div class="content-card-row">
+        <div class="content-card-column">
+          <i class="fas fa-thumbs-up fa-2x"></i>
+          <h5>Customer satisfaction</h5>
+        </div>
+        <div class="content-card-column-results">
+          <h5>{{stats.satisfaction}}%</h5>
+        </div>
+
+      </div>
+
+    </div>
+  </mat-card>
+</div>

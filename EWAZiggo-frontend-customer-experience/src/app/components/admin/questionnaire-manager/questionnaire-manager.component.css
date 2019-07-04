@@ -1,0 +1,114 @@
+h1 {
+  font-weight: bolder;
+  color: #8B8B8B;
+  font-size: 40px;
+}
+
+.content {
+  margin: 15px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.data-display {
+  color: #8B8B8B;
+  font-weight: bold;
+  display: block
+}
+
+.action-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.table-card {
+  padding: 0;
+}
+
+.manager-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.manager-table-header {
+  color: #8B8B8B;
+  font-weight: bold;
+  display: table-row;
+  width: 100%;
+}
+
+.manager-table-row {
+  display: table-row;
+  width: 100%;
+}
+
+.manager-table-row:hover {
+  background-color: #EBEBEB;
+}
+
+.manager-table-column {
+  display: table-cell;
+  color: #5D5D5D;
+  padding: 10px;
+}
+
+#add-btn {
+  font-weight: bold;
+  max-height: 30px;
+  margin-bottom: 2px;
+}
+
+.action-btn {
+  margin: 5px;
+}
+
+.edit {
+  color: #F48C00;
+}
+
+.delete {
+  color: #E60000;
+}
+
+.add-action {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.add-save:hover {
+  background-color: #FF8D00;
+  color: #ffffff;
+}
+
+.question-card {
+  margin-top: 10px;
+}
+
+#addCard {
+  background-color: transparent;
+  border: 2px dashed #5D5D5D;
+  color: #5D5D5D;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#addCard:hover {
+  border-color: #FF8D00;
+  color: #FF8D00;
+}
+
+.question-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.question-form-row{
+  display: flex;
+  justify-content: space-evenly;
+}

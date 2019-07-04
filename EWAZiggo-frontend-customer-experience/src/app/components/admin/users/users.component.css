@@ -1,0 +1,38 @@
+h1{
+  font-weight: bolder;
+  color: #8B8B8B;
+  font-size: 40px;
+}
+.content{
+  margin: 15px;
+}
+.users-toolbar{
+  color: #8B8B8B;
+  font-size: 24px;
+  margin: 0 0 15px 0;
+}
+.users-amount-label{
+  margin: 0 10px ;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+table {
+  width: 100%;
+  border-radius: 10px;
+}
+th{
+  background: linear-gradient(to bottom, #34322B, #545251);
+  font-size: 20px;
+  color: #ffffff;
+}
+#first{
+  border-radius: 10px 0 0 0;
+}
+#last{
+  border-radius: 0 10px 0 0;
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #EC3C00;
+}

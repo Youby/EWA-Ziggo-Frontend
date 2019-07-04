@@ -1,0 +1,123 @@
+<div class="content">
+  <ng-template [ngIf]="showList">
+    <div class="header">
+      <h1>Questionnaires</h1>
+      <div><span class="data-display">Total Questionnaires: 10</span>
+        <span class="data-display">Currently displayed: 3/10</span>
+      </div>
+    </div>
+    <div class="action-row">
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Filter">
+      </mat-form-field>
+    </div>
+    <button mat-stroked-button id="add-btn" (click)="newQuestionnaire()">Add</button>
+    <mat-card class="table-card">
+      <div class="manager-table">
+        <div class="manager-table-header">
+          <div class="manager-table-column"><span>Name</span></div>
+          <div class="manager-table-column"><span>Category</span></div>
+          <div class="manager-table-column"><span>Status</span></div>
+          <div class="manager-table-column"><span>Created</span></div>
+          <div class="manager-table-column"><span>Operation</span></div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="manager-table-row">
+          <div class="manager-table-column"><span>trial</span></div>
+          <div class="manager-table-column"><span>Geen internet</span></div>
+          <div class="manager-table-column"><span>Inactive</span></div>
+          <div class="manager-table-column"><span>2019-06-02 09:00:00</span></div>
+          <div class="manager-table-column">
+            <button mat-icon-button>
+              <i class="fas fa-edit fa-2x action-btn edit"></i>
+            </button>
+            <button mat-icon-button>
+              <i class="fas fa-trash-alt fa-2x action-btn delete"></i>
+            </button>
+            <mat-slide-toggle>Active</mat-slide-toggle>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </ng-template>
+  <ng-template [ngIf]="showQuestionnaireDetails">
+    <div class="add-action">
+      <button mat-stroked-button (click)="cancelAdd()">Cancel</button>
+      <button mat-stroked-button (click)="saveQuestionnaire()" class="add-save">Save</button>
+    </div>
+    <mat-card class="questionnaire-details-card">
+      <mat-card-header>
+        <div mat-card-avatar style="height:150px;width:150px;"
+             [ngStyle]="{'background': 'url(' + getImage(currentQuestionnaire.category.name) + ') no-repeat 0 0 / cover'}"></div>
+        <mat-card-subtitle><b>Name</b></mat-card-subtitle>
+        <mat-card-subtitle>
+          <mat-form-field>
+            <mat-label>{{currentQuestionnaire.name}}</mat-label>
+            <input matInput placeholder="Nieuwe Versie">
+          </mat-form-field>
+        </mat-card-subtitle>
+        <mat-card-subtitle><b>Category</b></mat-card-subtitle>
+        <mat-card-subtitle>
+          <mat-form-field>
+            <mat-label>{{currentQuestionnaire.category.name}}</mat-label>
+            <mat-select  [(value)]="currentQuestionnaire.category.name">
+              <mat-option *ngFor="let category of categories" [value]="category.name">
+                {{category.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+    <mat-card class="table-card question-card">
+      <div class="manager-table">
+        <div class="manager-table-header">
+          <div class="manager-table-column"><span>Id</span></div>
+          <div class="manager-table-column"><span>Title</span></div>
+          <div class="manager-table-column"><span>Question</span></div>
+          <div class="manager-table-column"><span>Created</span></div>
+          <div class="manager-table-column"><span>Operation</span></div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="manager-table-row">
+          <div class="manager-table-column"><span>trial</span></div>
+          <div class="manager-table-column"><span>Geen internet</span></div>
+          <div class="manager-table-column"><span>Inactive</span></div>
+          <div class="manager-table-column"><span>2019-06-02 09:00:00</span></div>
+          <div class="manager-table-column">
+            <button mat-icon-button>
+              <i class="fas fa-edit fa-2x action-btn edit"></i>
+            </button>
+            <button mat-icon-button>
+              <i class="fas fa-trash-alt fa-2x action-btn delete"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+    <mat-card class="question-card" *ngIf="showQuestionDetails">
+      <div class="question-form-row">
+        <div>
+          <mat-card-subtitle>Title</mat-card-subtitle>
+          <mat-form-field appearance="fill">
+            <input matInput placeholder="Title">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-card-subtitle>Question</mat-card-subtitle>
+          <mat-form-field appearance="fill">
+            <input matInput placeholder="Question">
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-card-actions class="question-card-actions">
+        <button mat-stroked-button (click)="cancelQuestion()">Cancel</button>
+        <button mat-stroked-button (click)="saveQuestion()" class="add-save">Save</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="question-card" id="addCard" (click)="newQuestion()">
+      <i class="fas fa-plus-circle fa-2x"></i>
+    </mat-card>
+  </ng-template>
+</div>

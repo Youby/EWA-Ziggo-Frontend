@@ -1,0 +1,133 @@
+<mat-sidenav-container  class="content" (window:beforeunload)="statusOffline()">
+  <mat-sidenav class="employee-chat-list" opened mode="side">
+    <div class="employee-chat-status">
+      <div class="employee-chat-status-row">
+        <button mat-mini-fab class="status-btn" id="online" (click)="statusOnline()" ></button>
+        <button mat-mini-fab class="status-btn" id="offline" (click)="statusOffline()"></button>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="employee-chat-status-row"><span>Status:</span><span
+        [ngStyle]="{'color': isOnline ? '#7FFF00' : '#FF0000'}"> {{status}}</span></div>
+    </div>
+    <mat-divider></mat-divider>
+    <h3 class="chat-label">{{ chatLabel }}</h3>
+
+    <mat-nav-list>
+      <div *ngFor="let chat of chats; let i = index">
+        <a mat-list-item (click)="openChat(i)">
+          <h3 class="chat-label"><span matBadge="&#8288;" matBadgeOverlap="false" matBadgeColor="warn"
+                                       [matBadgeHidden]=" !chat.newMessages">  {{chat.client.name + ' ' + chat.client.surname}} </span>
+          </h3>
+        </a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav #details class="employee-customer-details"  mode="side" position="end">
+
+    <span class="customer-details-title">Gegevens</span>
+    <mat-card class="customer-info-card">
+      <mat-card-header class="customer-info-card-header">
+        <mat-card-title class="customer-info-card-title">Klantgegevens</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="customer-info-card-content">
+        <div class="content-row">
+          <span class="customer-info-card-content-title">Klantnummer</span>
+          <span>{{customer.customerCode}}</span>
+        </div>
+        <div class="content-row">
+          <span class="customer-info-card-content-title">Naam</span>
+          <span>{{customer.surname}}</span>
+        </div>
+        <div class="content-row">
+          <span class="customer-info-card-content-title">Voornaam</span>
+          <span>{{customer.name}}</span>
+        </div>
+        <div class="content-row">
+          <span class="customer-info-card-content-title">Geboortedatum</span>
+          <span>{{customer.birthdate}}</span>
+        </div>
+        <div class="content-row">
+          <span class="customer-info-card-content-title">Adres aansluiting</span>
+          <span>{{customer.address}}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="customer-info-card">
+      <mat-card-header class="customer-info-card-header">
+        <mat-card-title class="customer-info-card-title">Contactgegevens</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="customer-info-card-content">
+        <div class="content-row">
+          <span class="customer-info-card-content-title">Telefoonnummer</span>
+          <span>{{customer.phone}}</span>
+        </div>
+        <div class="content-row">
+          <span class="customer-info-card-content-title">Mobiel nummer</span>
+          <span>{{customer.mobilePhone}}</span>
+        </div>
+        <div class="content-row">
+          <span class="customer-info-card-content-title">E-mailadres</span>
+          <span>{{customer.email}}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="customer-info-card">
+      <mat-card-header class="customer-info-card-header">
+        <mat-card-title class="customer-info-card-title">Apparatuur</mat-card-title>
+        <div class="spacer"> </div> 
+      </mat-card-header>
+      <mat-card-content class="customer-info-card-content">
+        <div *ngFor="let item of equipment">
+          <div class="content-row" >
+            <span  class="customer-info-card-content-title">{{item.id.type}}</span>
+            <span>{{item.model}}</span>
+          </div>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="customer-info-card">
+      <mat-card-header class="customer-info-card-header">
+        <mat-card-title class="customer-info-card-title">Monteursafspraken</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="customer-info-card-content">
+        <div class="content-row">
+          <span class="customer-info-card-content-title">Datum</span>
+          <span class="customer-info-card-content-title">Status</span>
+        </div>
+        <div *ngFor="let appointment of appointments">
+        <div class="content-row" >
+          <span>{{appointment.id.date}}</span>
+          <span>{{appointment.status}}</span>
+        </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-sidenav>
+  <div class="welcome-message" [hidden]="!isHidden">
+    <span>Welkom terug, {{user.name}}</span>
+  </div>
+  <div class="employee-chat" [hidden]="isHidden">
+    <div class="employee-chatbox">
+      <mat-form-field>
+        <input matInput class="chatbox-field" [(ngModel)]="content" (keydown.enter)="sendMessage()">
+      </mat-form-field>
+    </div>
+    <div class="chat-messages">
+      <div *ngFor="let message of currentChat.chat.messages">
+        <mat-card class="chat-message">
+          <mat-card-title class="author">{{message.user.name}}</mat-card-title>
+          <mat-card-content class="chat-message__content">{{message.content}}</mat-card-content>
+          <mat-card-subtitle class="date" align="right">{{message.sent}}</mat-card-subtitle>
+        </mat-card>
+      </div>
+    </div>
+    <div class="employee-chat-header">
+      <i class="fa fa-times close" (click)="closeChat()"></i>
+      <span clas>{{currentChat.client.name + ' ' + currentChat.client.surname}}</span>
+      <span class="spacer"></span>
+      <i class="fa fa-info-circle" (click)="details.toggle()" style="cursor: pointer"></i>
+    </div>
+  </div>
+</mat-sidenav-container>

@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Deel uw mening met ons</h1>
+<mat-dialog-content>
+ Hoe heeft u de chat ervaren?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div *ngFor="let rate of rating; let i = index">
+  <div>
+    <span *ngIf="!rate" (mouseenter)="hover(i)"><i class="fa fa-star-o fa-3x rating"></i></span>
+    <span *ngIf="rate" (click)="rateChat((i+1))" (mouseleave)="unhover(i)"><i class="fa fa-star fa-3x rating"></i></span>
+  </div></div>
+</mat-dialog-actions>
